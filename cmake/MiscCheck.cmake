@@ -26,11 +26,6 @@ if(EXISTS "/etc/os-release")
     if(OS_RELEASE_VERSION_ID VERSION_GREATER "17.04")
       if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "6.0.0")
-          message(FATAL_ERROR
-            "Please use GCC 6 or higher on Ubuntu 17.04 and higher. "
-            "For more information, see: "
-            "https://github.com/caffe2/caffe2/issues/1633"
-            )
         endif()
       endif()
     endif()
