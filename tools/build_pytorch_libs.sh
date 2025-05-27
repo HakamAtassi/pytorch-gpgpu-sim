@@ -153,6 +153,7 @@ function build() {
   # installed libraries instead
   ${CMAKE_VERSION} ../../$1 -DCMAKE_MODULE_PATH="$BASE_DIR/cmake/Modules_CUDA_fix" \
               ${CMAKE_GENERATOR} \
+              -DCUDA_HOST_COMPILER=/usr/bin/gcc-5 \
               -DTorch_FOUND="1" \
               -DCMAKE_INSTALL_PREFIX="$INSTALL_DIR" \
               -DCMAKE_C_FLAGS="$BUILD_C_FLAGS $USER_CFLAGS" \
@@ -252,6 +253,7 @@ function build_caffe2() {
   pushd build
   ${CMAKE_VERSION} .. \
   ${CMAKE_GENERATOR} \
+      -DCUDA_HOST_COMPILER=/usr/bin/gcc-5 \
       -DBUILDING_WITH_TORCH_LIBS=ON \
       -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
       -DBUILD_CAFFE2=$FULL_CAFFE2 \
